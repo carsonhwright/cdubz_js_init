@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "undici": "^7.22.0"
+  },
+  "type": "module"
+}
