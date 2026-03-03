@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import argparse
 
-
+# DEF_TOK_FP = something with os.volume/user/os.login/.personal/dev.tok
 
 def main(path: None, token: None):
     """makes sys call for development container build, needs github access token
@@ -14,7 +14,7 @@ def main(path: None, token: None):
     path - string: path to where token stored
     token - string: token for github access
     """
-
+    # TODO this missing token arg needs to see one if it doesn't exist
     if path:
         fp_token = path
         temp = fp_token
@@ -52,3 +52,4 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--token")
     args = parser.parse_args()
     main(args.path, args.token)
+    

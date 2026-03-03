@@ -4,7 +4,9 @@ ARG TOK
 WORKDIR /root
 
 # COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN apk update && apk add vim git net-tools iproute2 curl
+RUN apk update && apk add vim git net-tools iproute2 curl ollama
+# get an llm to ask it questions from streaming requests
+RUN ollama run mistral
 RUN git clone https://$TOK@github.com/carsonhwright/cdubz_js_init.git
 
 # ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
