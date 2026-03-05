@@ -52,6 +52,6 @@ try {
 } catch (error) {
     console.error('Error calling Ollama:', error);
 } finally {
-    console.log('Clossing Ollama pool.');
+    console.log('Closing Ollama pool.');
     ollamaPool.close();
 }

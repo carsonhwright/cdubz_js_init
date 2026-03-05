@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import argparse
 
-# DEF_TOK_FP = something with os.volume/user/os.login/.personal/dev.tok
+DEF_TOK_FP = Path.home() / ".personal/dev.tok"
 
 def main(path: None, token: None):
     """makes sys call for development container build, needs github access token
@@ -15,6 +15,7 @@ def main(path: None, token: None):
     token - string: token for github access
     """
     # TODO this missing token arg needs to see one if it doesn't exist
+    
     if path:
         fp_token = path
         temp = fp_token
@@ -23,8 +24,11 @@ def main(path: None, token: None):
             if not fp_token.exists():
                 raise FileNotFoundError(f"Could not find token at {temp}\nPlease try again.")
 
-    
         with open(fp_token, "r") as f:
+            s_tok = f.read()
+
+    elif DEF_TOK_FP.exists():
+        with open(DEF_TOK_FP, "r") as f:
             s_tok = f.read()
     else:
         s_tok = token

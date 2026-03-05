@@ -3,10 +3,8 @@ ARG TOK
 # SHELL ["/bin/bash", "-c"]
 WORKDIR /root
 
-# COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY scripts/run-me.sh /root/run-me.sh
 RUN apk update && apk add vim git net-tools iproute2 curl ollama
+RUN npm install undici
 # get an llm to ask it questions from streaming requests
-RUN ollama run mistral
 RUN git clone https://$TOK@github.com/carsonhwright/cdubz_js_init.git
-
-# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
