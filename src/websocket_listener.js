@@ -21,12 +21,12 @@ class cdWebSocketServer extends WebSocket{
     }
 }
 
-class cdWebSocketClient extends Websocket {
+class cdWebSocketClient extends WebSocket {
     constructor(ip= "localhost", port= 8080) {
         super(`ws://${ip}:${port}`);
         this.addEventListener('open', event => {
-            console.log("Welcome illustrious User, to the cdWebSocketClient.")
+            console.log("Welcome illustrious User, to the cdWebSocketClient.");
             
-        })
+        });
     }
 }
